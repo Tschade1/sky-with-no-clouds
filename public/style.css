@@ -1,0 +1,241 @@
+/* General Layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: black;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body.noscroll {
+    overflow: hidden;
+  }
+  
+  /* Main Gallery Scroll Area */
+  #galleryContainer {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+  
+  /* Image Container */
+  .photo-card {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+  }
+  
+  .photo-area {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Metadata Sidebar */
+  .meta-area {
+    width: max(10%, 180px);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 10px;
+    box-sizing: border-box;
+  }
+  
+  .meta-area p {
+    margin: 4px 0;
+    font-size: 12px;
+    line-height: 1.2;
+    color: black;
+  }
+  
+  /* Navigation Button Stack */
+  .gallery-header {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+  }
+  
+  .gallery-header button {
+    border: 2px dashed black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background: white;
+    color: black;
+    cursor: pointer;
+  }
+  
+  /* Overlay for upload background */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 90;
+  }
+  
+  .overlay.show {
+    display: block;
+  }
+  
+  /* Upload Form Popup */
+  .upload-form {
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    background: white;
+    border: 2px solid black;
+    display: none;
+  }
+  
+  .upload-form.show {
+    display: block;
+  }
+  
+  .upload-form .instruction {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .upload-form .guidelines {
+    font-size: 14px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-left: 20px;
+  }
+  
+  .upload-form .guidelines li {
+    margin: 4px 0;
+  }
+  
+  .upload-form input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .upload-form button {
+    margin-top: 10px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Info Dialog */
+  .dialog {
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    background: white;
+    border: 2px solid black;
+    display: none;
+  }
+  
+  .dialog.show {
+    display: block;
+  }
+  #gridContainer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0; /* Ensures images touch */
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .grid-cell {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .grid-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .grid-meta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px;
+    font-size: 12px;
+    display: none;
+  }
+  
+  .grid-cell:hover .grid-meta {
+    display: block;
+  }
+  #gridContainer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .grid-cell {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .grid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    display: block;
+  }
+  
+  .grid-meta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    display: none;
+  }
+  
+  .grid-cell:hover .grid-meta {
+    display: block;
+  }
+  

@@ -1,0 +1,88 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: black;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior-y: contain;
+
+  }
+  
+  .photo-card {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    flex-direction: row;
+    align-items: stretch;
+    scroll-snap-align: start;
+    scroll-snap-align: start;
+  scroll-margin-top: 0; /* optional, helps accuracy */
+  }
+  
+  .photo-area {
+    flex: 1 1 auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .meta-area {
+    width: max(10%, 180px);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .meta-area p {
+    margin: 4px 0;
+    font-size: 12px;
+    line-height: .8;
+    text-align: left;
+    color: black;
+  }
+  
+  .meta-nav {
+    position: fixed;
+    top: 20px;
+    right: 0;
+    width: max(10%, 180px);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nav-buttons button {
+    border: 2px dashed black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 2px solid black;
+    padding: 20px;
+    display: none;
+    z-index: 100;
+  }
+  
+  .dialog.show {
+    display: block;
+  }
+  

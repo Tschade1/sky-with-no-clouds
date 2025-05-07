@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery — Sky Photos</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- Button Stack -->
+<div class="gallery-header">
+  <button onclick="window.location.href='/grid.html'">#</button>
+  <button onclick="window.location.href='/map.html'">🌍</button>
+  <button data-about-button>?</button>
+  <button data-upload-button>⬆️</button>
+</div>
+
+<!-- About Dialog -->
+<div class="dialog" id="aboutDialog">
+  <p>This is a project collecting user-submitted sky photos with time & location metadata.</p>
+  <button data-close-button>Close</button>
+</div>
+
+<!-- Upload Overlay -->
+<div class="overlay" id="uploadOverlay"></div>
+
+<!-- Upload Form -->
+<div class="upload-form" id="uploadForm">
+  <button class="close-button" data-close-button>✖</button>
+  <p class="instruction">Upload a photo of the sky with no clouds.</p>
+  <ul class="guidelines">
+    <li>No clouds</li>
+    <li>No sun</li>
+    <li>No planes</li>
+    <li>No birds</li>
+    <li>No buildings</li>
+  </ul>
+
+  <input type="file" accept="image/*" id="photoInput"><br>
+
+  <div id="manualFields" style="display: none;">
+    <div id="manualDateTime" style="display: none;">
+      <label>Date: <input type="date" id="manualDate"></label><br>
+      <label>Time: <input type="time" id="manualTime"></label><br>
+    </div>
+    <div id="manualLocation" style="display: none;">
+      <label>Pick location:</label>
+      <div id="manualMap" style="width: 100%; height: 200px;"></div>
+    </div>
+  </div>
+
+  <button data-submit-button>Submit</button>
+</div>
+
+<!-- Gallery Container -->
+<div id="galleryContainer">
+  <!-- Preview slot -->
+  <div class="photo-card" id="previewCard" style="display: none;">
+    <div class="photo-area" id="photoArea"></div>
+    <div class="meta-area">
+      <div id="meta">
+        <p>--</p>
+        <p>--</p>
+        <p>--</p>
+        <p>--</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main JS Modules -->
+<script type="module" src="script.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>

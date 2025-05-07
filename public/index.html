@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sky Photo</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="photo-area" id="photoArea"></div>
+
+    <div class="sidebar" id="sidebar">
+      <div class="gallery-header">
+        <button onclick="window.location.href='/grid.html'">#</button>
+        <button onclick="window.location.href='/map.html'">🌍</button>
+        <button onclick="toggleDialog()">?</button>
+        <button onclick="toggleUploadForm()">⬆️</button>
+      </div>
+
+      <div class="meta" id="meta">
+        <p>--</p>
+        <p>--</p>
+        <p>--</p>
+        <p>--</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Overlay -->
+  <div class="overlay" id="uploadOverlay"></div>
+
+  <!-- Upload Form -->
+  <div class="upload-form" id="uploadForm">
+    <button class="close-button" onclick="toggleUploadForm()">✖</button>
+
+    <p class="instruction">
+      Upload a photo of the sky with no clouds.
+    </p>
+    <ul class="guidelines">
+      <li>No clouds</li>
+      <li>No sun</li>
+      <li>No planes</li>
+      <li>No birds</li>
+      <li>No buildings</li>
+    </ul>
+
+    <input type="file" accept="image/*" id="photoInput"><br>
+
+    <div id="manualFields">
+      <div id="manualDateTime">
+        <label>Date: <input type="date" id="manualDate"></label><br>
+        <label>Time: <input type="time" id="manualTime"></label><br>
+      </div>
+
+      <div id="manualLocation">
+        <label>Pick location:</label>
+        <div id="manualMap"></div>
+      </div>
+    </div>
+
+    <button onclick="submitUpload()">Submit</button>
+  </div>
+
+  <!-- About Dialog -->
+  <div class="dialog" id="aboutDialog">
+    <p>This is a project collecting clear sky photos with time & location data.</p>
+    <button onclick="toggleDialog()">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
